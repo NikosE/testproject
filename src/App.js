@@ -1,16 +1,13 @@
-import React from 'react';
+import React from 'react'
+import { Layout } from './layout/Layout'
 import 'antd/dist/antd.css'
-import { Layout } from './layout/Layout';
+import { Auth } from './auth/Auth';
 
 
-
-
-function App() {
+export default function App() {
   return (
-      <div>
-         <Layout/>
-      </div>
+    <Auth>
+      <Layout />
+    </Auth>
   );
 }
-
-export default App;
