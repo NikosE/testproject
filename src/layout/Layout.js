@@ -9,7 +9,6 @@ import { Authorized, unAuthorized } from '../services/Routes'
 export const Layout = () => {
 
   const auth = useContext(AuthContext)
-  console.log(auth)
   
   return (
       <BrowserRouter>
