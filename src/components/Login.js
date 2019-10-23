@@ -6,18 +6,19 @@ export const Login = () => {
   const auth = useContext(AuthContext)
 
   return (
-      <Card bordered={false} style={{ width: 300 }}>
+    <div style={{ background: '#ECECEC', padding: '70px', height: '100%'}}>
+      <Card title="Test Project" bordered={false} style={{ width: 300, margin: 'auto'}}>
         <Form onSubmit={auth.signIn}>
           <Form.Item>
             <Input
               prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
-              placeholder="Username"/>
+              placeholder="Όνομα Χρήστη"/>
           </Form.Item>
           <Form.Item>
             <Input
               prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }} />}
               type="password"
-              placeholder="Password"/>
+              placeholder="Κωδικός Χρήστη"/>
           </Form.Item>
           <Form.Item>
             <Button type="primary" htmlType="submit" className="login-form-button">
@@ -25,11 +26,12 @@ export const Login = () => {
             </Button><br/>
             <a className="login-form-forgot" href="">
               Forgot password!
-            </a>&nbsp;&nbsp;
+            </a><br/>
             <a href="">register now!</a>
           </Form.Item>
         </Form>
       </Card>
+    </div>
   )
 }
 
