@@ -1,12 +1,16 @@
 import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
+import 'antd/dist/antd.css';
 import { Table, Button } from "antd";
 
-const columns = [
+  const columns = [
   {
     title: "Birth",
     dataIndex: "birth",
-    key: "birth"
+    key: "birth",
+    defaultSortOrder: 'descend',
+    sorter: (a, b) => a.birth - b.birth,
+    sortDirections: ['descend', 'ascend'],
   },
 
   {
@@ -36,7 +40,7 @@ const columns = [
   {
     title: "Name",
     dataIndex: "name",
-    key: "name"
+    key: "name",
   },
 
   {
@@ -45,14 +49,14 @@ const columns = [
     key: "race",
     filters: [
       { text: "Human", value: "Human" },
-      { text: "Elf", value: "elf" },
-      { text: "Dwarf", value: "dwarf" },
-      { text: "Hobbit", value: "hobbit" },
-      { text: "Maiar", value: "maiar" },
-      { text: "Ent", value: "ent" },
-      { text: "Orcs", value: "orcs" }
+      { text: "Elf", value: "Elf" },
+      { text: "Dwarf", value: "Dwarf" },
+      { text: "Hobbit", value: "Hobbit" },
+      { text: "Maiar", value: "Maiar" },
+      { text: "Ent", value: "Ent" },
+      { text: "Orcs", value: "Orcs" }
     ],
-    onFilter: (value, record) => record.name.indexOf(value)
+    onFilter: (value, record) => record.race === value,
   },
 
   {
@@ -77,8 +81,6 @@ const columns = [
 export const Home = () => {
   const [characters, setCharacters] = useState([]);
 
-  const [filteredInfo, setFilteredInfo] = useState(null);
-
   useEffect(() => {
     async function fetchData() {
       const response = await axios.get(
@@ -91,24 +93,20 @@ export const Home = () => {
     fetchData();
   }, []);
 
-  const handleChange = filters => {
-    setFilteredInfo(filters);
-  };
-
-  const clearFilters = () => {
-    setFilteredInfo(null);
-  };
+  const onChange=(filters, sorter) => {
+    console.log(filters,sorter);
+  }
 
   return (
     <Fragment>
       <div>
-        <Button onClick={clearFilters}>Clear filters</Button>
+        <Button>Clear filters</Button>
       </div>
       <div>
         <Table
           dataSource={characters.docs}
           columns={columns}
-          onChange={handleChange}
+          onChange={onChange}
           rowKey={x => x._id}
         />
       </div>

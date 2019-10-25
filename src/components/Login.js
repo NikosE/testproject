@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
 import { Form, Icon, Input, Button, Card } from 'antd'
 import { AuthContext } from '../context/AuthContext'
+import './Login.css'
 
 export const Login = () => {
   const auth = useContext(AuthContext)
 
   return (
-    <div style={{ background: '#ECECEC', padding: '70px', height: '100%'}}>
+    <div className = "box">
       <Card title="Test Project" bordered={false} style={{ width: 300, margin: 'auto'}}>
         <Form onSubmit={auth.signIn}>
           <Form.Item>
@@ -24,10 +25,10 @@ export const Login = () => {
             <Button type="primary" htmlType="submit" className="login-form-button">
               Log in
             </Button><br/>
-            <a className="login-form-forgot" href="">
+            <a className="login-form-forgot">
               Forgot password!
             </a><br/>
-            <a href="">register now!</a>
+            <a>register now!</a>
           </Form.Item>
         </Form>
       </Card>

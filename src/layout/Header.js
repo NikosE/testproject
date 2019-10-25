@@ -17,8 +17,8 @@ export const Header = () => {
       <Menu onClick={handleClick} selectedKeys={menu.key} mode="horizontal">
         <Menu.Item key="home">
           <Link to="/" >
-            <Icon type="home" theme="twoTone" />
-            Home
+          <Icon type="smile" theme="twoTone" />
+           LOTR Characters
           </Link>
         </Menu.Item>
         <Menu.Item key="about">
