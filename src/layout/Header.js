@@ -15,16 +15,16 @@ export const Header = () => {
 
   return (
       <Menu onClick={handleClick} selectedKeys={menu.key} mode="horizontal">
-        <Menu.Item key="home">
+        <Menu.Item key="characters">
           <Link to="/" >
           <Icon type="smile" theme="twoTone" />
            LOTR Characters
           </Link>
         </Menu.Item>
-        <Menu.Item key="about">
-          <Link to="/about" >
-            <Icon type="file-exclamation" theme="twoTone" />
-            About
+        <Menu.Item key="movies">
+          <Link to="/movies" >
+            <Icon type="video-camera" theme="twoTone" />
+            Movies
           </Link>
         </Menu.Item>
         <Menu.Item key="contact">

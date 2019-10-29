@@ -8,7 +8,6 @@ import { Table, Button } from "antd";
     title: "Birth",
     dataIndex: "birth",
     key: "birth",
-     defaultSortOrder: 'descend',
     sorter: (a, b) => {if(!a.birth) a.birth = ""; if(!b.birth) b.birth = ""; return b.birth.localeCompare(a.birth)},
     sortDirections: ['descend', 'ascend'],
   },
@@ -23,7 +22,6 @@ import { Table, Button } from "antd";
     title: "Gender",
     dataIndex: "gender",
     key: "gender",
-    defaultSortOrder: 'descend',
     sorter: (a,b) => (a.gender > b.gender) ? 1 : ((b.gender > a.gender) ? -1 : 0) ,
     sortDirections: ['descend', 'ascend'],
   },
@@ -81,7 +79,7 @@ import { Table, Button } from "antd";
   }
 ];
 
-export const Home = () => {
+export const Characters = () => {
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
@@ -92,7 +90,6 @@ export const Home = () => {
       );
 
       setCharacters(response.data);
-      console.log(response.data.docs);
     }
     fetchData();
   }, []);

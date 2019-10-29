@@ -1,15 +1,15 @@
 import React from 'react';
 import { Switch, Route, Redirect } from "react-router-dom"
-import { Home } from '../components/Home';
+import { Characters } from '../components/Characters';
 import { Contact } from '../components/Contact';
-import { About } from '../components/About';
+import { Movies } from '../components/Movies';
 import { Login } from '../components/Login';
 
 
 export const Authorized =  (
   <Switch>
-    <Route exact path="/" component={Home} />
-    <Route exact path="/about" component={About} />
+    <Route exact path="/" component={Characters} />
+    <Route exact path="/movies" component={Movies} />
     <Route exact path="/contact" component={Contact} />
     
   </Switch>);
